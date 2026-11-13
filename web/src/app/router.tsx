@@ -5,6 +5,7 @@ import { AppShell } from '../components/layout/AppShell'
 const LoginPage     = lazy(() => import('../features/auth/components/LoginPage'))
 const DashboardPage = lazy(() => import('../features/dashboard/components/DashboardPage'))
 const CoursePage    = lazy(() => import('../features/courses/components/CoursePage').then(m => ({ default: m.CoursePage })))
+const GradesPage    = lazy(() => import('../features/grades/components/GradesPage').then(m => ({ default: m.GradesPage })))
 
 function Loading() {
   return (
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <DashboardPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/grades/:courseId',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GradesPage />
           </Suspense>
         ),
       },
