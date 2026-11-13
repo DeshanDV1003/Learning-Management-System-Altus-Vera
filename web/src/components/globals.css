@@ -1,3 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   LIGHT MODE  (default — exact NLearn colors)
+   ═══════════════════════════════════════════ */
+:root,
+[data-theme="light"] {
+  --color-primary:         #51666C;   /* buttons, links */
+  --color-primary-hover:   #3e5056;
+  --color-primary-dark:    #204C93;   /* top header bar */
+  --color-accent:          #00B3A1;   /* teal progress bar / active indicator */
+  --color-green:           #4CAF50;   /* green action button */
+  --color-green-hover:     #3d9140;
+
+  /* Text */
+  --color-text:            #333333;
+  --color-text-muted:      #6c757d;
+  --color-heading:         #3A454B;
+  --color-link:            #51666C;
+  --color-link-hover:      #3e5056;
+  --color-nav-link:        #ffffff;
+
+  /* Backgrounds */
+  --color-bg-page:         #ffffff;
+  --color-bg-header:       #FDFEF4;   /* cream-white header */
+  --color-bg-top-bar:      #204C93;   /* dark blue top bar */
+  --color-bg-nav-drawer:   #F2F2F2;
+  --color-bg-card:         #ffffff;
+  --color-bg-card-hover:   #f8f9fa;
+  --color-bg-thumb:        #F8F9FA;   /* course thumbnail placeholder */
+  --color-bg-input:        #ffffff;
+  --color-bg-section-head: #f8f9fa;
+  --color-bg-dropdown:     #ffffff;
+  --color-bg-sidebar:      #ffffff;
+
+  /* Borders */
+  --color-border:          #CED4DA;
+  --color-border-section:  #cccccc;   /* dotted section separator */
+  --color-border-card:     rgba(0,0,0,0.125);
+  --color-border-input:    #CED4DA;
+
+  /* Misc */
+  --color-progress-bar:    #00B3A1;
+  --color-badge-blue:      #204C93;
+  --color-shadow:          rgba(0,0,0,0.08);
+  --radius-btn:            5px;
+  --radius-card:           4px;
+  --radius-input:          0px;
+}
+
+/* ═══════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --color-primary:         #7DA8B0;
+  --color-primary-hover:   #90bfc8;
+  --color-primary-dark:    #1a3a7a;
+  --color-accent:          #00C9B4;
+  --color-green:           #4CAF50;
+  --color-green-hover:     #5ac05e;
+
+  /* Text */
+  --color-text:            #e0e0e0;
+  --color-text-muted:      #9ea8b0;
+  --color-heading:         #c8d0d8;
+  --color-link:            #7DA8B0;
+  --color-link-hover:      #90bfc8;
+  --color-nav-link:        #ffffff;
+
+  /* Backgrounds */
+  --color-bg-page:         #1a1d2e;
+  --color-bg-header:       #12152a;
+  --color-bg-top-bar:      #0d1b4a;
+  --color-bg-nav-drawer:   #1e2235;
+  --color-bg-card:         #22263a;
+  --color-bg-card-hover:   #2a2f47;
+  --color-bg-thumb:        #2a2f47;
+  --color-bg-input:        #1e2235;
+  --color-bg-section-head: #1e2235;
+  --color-bg-dropdown:     #22263a;
+  --color-bg-sidebar:      #1a1d2e;
+
+  /* Borders */
+  --color-border:          #3a3f5a;
+  --color-border-section:  #3a3f5a;
+  --color-border-card:     rgba(255,255,255,0.08);
+  --color-border-input:    #3a3f5a;
+
+  /* Misc */
+  --color-progress-bar:    #00C9B4;
+  --color-badge-blue:      #1a3a7a;
+  --color-shadow:          rgba(0,0,0,0.3);
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL BASE
+   ═══════════════════════════════════════════ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: var(--color-text);
+  background-color: var(--color-bg-page);
+  margin: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--color-heading);
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ─── Buttons ───────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
+}
+
+.btn-green {
+  background-color: var(--color-green);
+  color: #ffffff;
+}
+.btn-green:hover {
+  background-color: var(--color-green-hover);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ─── Form inputs ───────────────────────────── */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-input);
+  transition: border-color 0.15s;
+  outline: none;
+}
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(81,102,108,0.2);
+}
+.form-control::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ─── Cards ─────────────────────────────────── */
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-card);
+}
+
+/* ─── Section blocks (dashboard) ────────────── */
+.block-section {
+  border-top: 1px dashed var(--color-border-section);
+  margin-bottom: 24px;
+}
+.block-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: var(--color-heading);
+}
+.block-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* ─── Progress bar ───────────────────────────── */
+.progress-bar-container {
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+/* ─── Dropdown ───────────────────────────────── */
+.dropdown-menu {
+  background-color: var(--color-bg-dropdown);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  min-width: 160px;
+  padding: 4px 0;
+  z-index: 1000;
+}
+.dropdown-item {
+  display: block;
+  padding: 7px 16px;
+  font-size: 13px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: var(--color-bg-section-head);
+  color: var(--color-heading);
+  text-decoration: none;
+}

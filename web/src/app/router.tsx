@@ -7,8 +7,26 @@ const DashboardPage = lazy(() => import('../features/dashboard/components/Dashbo
 
 function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950">
-      <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'var(--color-bg-page)',
+      }}
+    >
+      <div
+        style={{
+          width: '32px',
+          height: '32px',
+          border: '3px solid var(--color-border)',
+          borderTopColor: 'var(--color-accent)',
+          borderRadius: '50%',
+          animation: 'spin 0.8s linear infinite',
+        }}
+      />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   )
 }
@@ -27,13 +45,17 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        element: <Navigate to="/dashboard" replace />,
+      },
+      {
+        path: '/dashboard',
         element: (
           <Suspense fallback={<Loading />}>
             <DashboardPage />
           </Suspense>
         ),
       },
-      { path: '*', element: <Navigate to="/" replace /> },
+      { path: '*', element: <Navigate to="/dashboard" replace /> },
     ],
   },
 ])
