@@ -1,0 +1,6 @@
+@AltuVera.LMS.API_HostAddress = http://localhost:5157
+
+GET {{AltuVera.LMS.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

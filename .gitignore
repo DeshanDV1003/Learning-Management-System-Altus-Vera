@@ -1,0 +1,19 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+*.log
+
+# EF migrations (keep source, ignore snapshots if needed)
+
+# Node
+web/node_modules/
+web/dist/
+web/.env.local
+
+# IDE
+.idea/
+*.DS_Store

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AltuVera.LMS.API/AltuVera.LMS.API.csproj" />
+    <Project Path="src/AltuVera.LMS.Application/AltuVera.LMS.Application.csproj" />
+    <Project Path="src/AltuVera.LMS.Domain/AltuVera.LMS.Domain.csproj" />
+    <Project Path="src/AltuVera.LMS.Infrastructure/AltuVera.LMS.Infrastructure.csproj" />
+  </Folder>
+</Solution>
